@@ -7,17 +7,17 @@ require_relative './course.rb'
 class Scraper
 
   def get_page
-    #this only gets the HTML from the page
+    #this ONLY gets the HTML from the page
     Nokogiri::HTML(open("http://learn-co-curriculum.github.io/site-for-scraping/courses"))
-
   end
 
   def get_courses
-    #this puts the course info from the HTML with the css selector ".post" into an array of Nogogiri XML
+    #this ONLY puts the course info from the HTML with the css selector ".post" into an array of Nogogiri XML
     self.get_page.css(".post")
   end
 
   def make_courses
+    #this takes the above and makes the courses
     self.get_courses.each do |post|
       course = Course.new
       course.title = post.css("h2").text
