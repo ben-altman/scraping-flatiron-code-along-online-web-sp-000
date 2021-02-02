@@ -13,7 +13,7 @@ class Scraper
   end
 
   def get_courses
-    #this gets the course info from the HTML
+    #this gets the course info from the HTML with the css selector ".post"
     self.get_page.css(".post")
   end
 
